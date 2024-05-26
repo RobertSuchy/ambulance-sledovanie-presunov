@@ -1,15 +1,15 @@
 import { newSpecPage } from '@stencil/core/testing';
-import { XsuchyAmbulancePresuny } from '../xsuchy-ambulance-presuny';
+import { XsuchyAmbulancePresuny } from '../xsuchy-ambulance';
 
-describe('xsuchy-ambulance-presuny', () => {
+describe('xsuchy-ambulance', () => {
   it('renders', async () => {
     const page = await newSpecPage({
       components: [XsuchyAmbulancePresuny],
-      html: `<xsuchy-ambulance-presuny></xsuchy-ambulance-presuny>`,
+      html: `<xsuchy-ambulance></xsuchy-ambulance>`,
     });
 
     expect(page.root).toEqualHtml(`
-      <xsuchy-ambulance-presuny>
+      <xsuchy-ambulance>
       <mock:shadow-root>
         <div>
           <slot>
@@ -27,7 +27,7 @@ describe('xsuchy-ambulance-presuny', () => {
           </button>
         </div>
       </mock:shadow-root>
-    </xsuchy-ambulance-presuny>
+    </xsuchy-ambulance>
     `);
   });
 });

@@ -8,6 +8,8 @@ import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 export namespace Components {
     interface XsuchyAmbulancePresuny {
     }
+    interface XsuchyAmbulancePresunyEditor {
+    }
 }
 declare global {
     interface HTMLXsuchyAmbulancePresunyElement extends Components.XsuchyAmbulancePresuny, HTMLStencilElement {
@@ -16,22 +18,33 @@ declare global {
         prototype: HTMLXsuchyAmbulancePresunyElement;
         new (): HTMLXsuchyAmbulancePresunyElement;
     };
+    interface HTMLXsuchyAmbulancePresunyEditorElement extends Components.XsuchyAmbulancePresunyEditor, HTMLStencilElement {
+    }
+    var HTMLXsuchyAmbulancePresunyEditorElement: {
+        prototype: HTMLXsuchyAmbulancePresunyEditorElement;
+        new (): HTMLXsuchyAmbulancePresunyEditorElement;
+    };
     interface HTMLElementTagNameMap {
-        "xsuchy-ambulance-presuny": HTMLXsuchyAmbulancePresunyElement;
+        "xsuchy-ambulance": HTMLXsuchyAmbulancePresunyElement;
+        "xsuchy-ambulance-editor": HTMLXsuchyAmbulancePresunyEditorElement;
     }
 }
 declare namespace LocalJSX {
     interface XsuchyAmbulancePresuny {
     }
+    interface XsuchyAmbulancePresunyEditor {
+    }
     interface IntrinsicElements {
-        "xsuchy-ambulance-presuny": XsuchyAmbulancePresuny;
+        "xsuchy-ambulance": XsuchyAmbulancePresuny;
+        "xsuchy-ambulance-editor": XsuchyAmbulancePresunyEditor;
     }
 }
 export { LocalJSX as JSX };
 declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
-            "xsuchy-ambulance-presuny": LocalJSX.XsuchyAmbulancePresuny & JSXBase.HTMLAttributes<HTMLXsuchyAmbulancePresunyElement>;
+            "xsuchy-ambulance": LocalJSX.XsuchyAmbulancePresuny & JSXBase.HTMLAttributes<HTMLXsuchyAmbulancePresunyElement>;
+            "xsuchy-ambulance-editor": LocalJSX.XsuchyAmbulancePresunyEditor & JSXBase.HTMLAttributes<HTMLXsuchyAmbulancePresunyEditorElement>;
         }
     }
 }

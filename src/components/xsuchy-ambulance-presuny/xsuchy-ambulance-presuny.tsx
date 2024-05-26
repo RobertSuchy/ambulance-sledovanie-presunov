@@ -1,8 +1,8 @@
 import { Component, Host, h, State } from '@stencil/core';
 
 @Component({
-  tag: 'xsuchy-ambulance-presuny',
-  styleUrl: 'xsuchy-ambulance-presuny.css',
+  tag: 'xsuchy-ambulance',
+  styleUrl: 'xsuchy-ambulance.css',
   shadow: true,
 })
 export class XsuchyAmbulancePresuny {
