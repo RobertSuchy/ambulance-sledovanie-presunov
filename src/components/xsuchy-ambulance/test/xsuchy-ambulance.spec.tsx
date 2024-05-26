@@ -13,7 +13,7 @@ describe('xsuchy-ambulance', () => {
       <mock:shadow-root>
         <div>
           <slot>
-            XSUCHY - AMBULANCE - SLEDOVANIE PRESUNOV - test
+            XSUCHY - AMBULANCE - SLEDOVANIE PRESUNOV
           </slot>
         </div>
         <div>
