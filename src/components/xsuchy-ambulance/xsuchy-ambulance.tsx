@@ -16,7 +16,7 @@ export class XsuchyAmbulance {
     return (
       <Host>
         <div>
-          <slot>XSUCHY - AMBULANCE - SLEDOVANIE PRESUNOV</slot>
+          <slot>XSUCHY - AMBULANCE - SLEDOVANIE PRESUNOV TEST</slot>
         </div>
         <div>
           <slot>{this.text}</slot>
