@@ -5,7 +5,7 @@ import { Component, Host, h, State } from '@stencil/core';
   styleUrl: 'xsuchy-ambulance.css',
   shadow: true,
 })
-export class XsuchyAmbulancePresuny {
+export class XsuchyAmbulance {
   @State() text: string = 'Povodny text...';
 
   changeText() {

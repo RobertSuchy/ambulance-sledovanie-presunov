@@ -1,10 +1,10 @@
 import { newSpecPage } from '@stencil/core/testing';
-import { XsuchyAmbulancePresuny } from '../xsuchy-ambulance';
+import { XsuchyAmbulance } from '../xsuchy-ambulance';
 
 describe('xsuchy-ambulance', () => {
   it('renders', async () => {
     const page = await newSpecPage({
-      components: [XsuchyAmbulancePresuny],
+      components: [XsuchyAmbulance],
       html: `<xsuchy-ambulance></xsuchy-ambulance>`,
     });
 
@@ -13,7 +13,7 @@ describe('xsuchy-ambulance', () => {
       <mock:shadow-root>
         <div>
           <slot>
-            XSUCHY - AMBULANCE - SLEDOVANIE PRESUNOV
+            XSUCHY - AMBULANCE - SLEDOVANIE PRESUNOV - test
           </slot>
         </div>
         <div>
