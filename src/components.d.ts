@@ -6,32 +6,32 @@
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 export namespace Components {
-    interface Cv2rsAmbulancePresuny {
+    interface XsuchyAmbulancePresuny {
     }
 }
 declare global {
-    interface HTMLCv2rsAmbulancePresunyElement extends Components.Cv2rsAmbulancePresuny, HTMLStencilElement {
+    interface HTMLXsuchyAmbulancePresunyElement extends Components.XsuchyAmbulancePresuny, HTMLStencilElement {
     }
-    var HTMLCv2rsAmbulancePresunyElement: {
-        prototype: HTMLCv2rsAmbulancePresunyElement;
-        new (): HTMLCv2rsAmbulancePresunyElement;
+    var HTMLXsuchyAmbulancePresunyElement: {
+        prototype: HTMLXsuchyAmbulancePresunyElement;
+        new (): HTMLXsuchyAmbulancePresunyElement;
     };
     interface HTMLElementTagNameMap {
-        "cv2rs-ambulance-presuny": HTMLCv2rsAmbulancePresunyElement;
+        "xsuchy-ambulance-presuny": HTMLXsuchyAmbulancePresunyElement;
     }
 }
 declare namespace LocalJSX {
-    interface Cv2rsAmbulancePresuny {
+    interface XsuchyAmbulancePresuny {
     }
     interface IntrinsicElements {
-        "cv2rs-ambulance-presuny": Cv2rsAmbulancePresuny;
+        "xsuchy-ambulance-presuny": XsuchyAmbulancePresuny;
     }
 }
 export { LocalJSX as JSX };
 declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
-            "cv2rs-ambulance-presuny": LocalJSX.Cv2rsAmbulancePresuny & JSXBase.HTMLAttributes<HTMLCv2rsAmbulancePresunyElement>;
+            "xsuchy-ambulance-presuny": LocalJSX.XsuchyAmbulancePresuny & JSXBase.HTMLAttributes<HTMLXsuchyAmbulancePresunyElement>;
         }
     }
 }

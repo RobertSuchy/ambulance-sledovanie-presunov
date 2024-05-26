@@ -1,11 +1,11 @@
 import { Component, Host, h, State } from '@stencil/core';
 
 @Component({
-  tag: 'cv2rs-ambulance-presuny',
-  styleUrl: 'cv2rs-ambulance-presuny.css',
+  tag: 'xsuchy-ambulance-presuny',
+  styleUrl: 'xsuchy-ambulance-presuny.css',
   shadow: true,
 })
-export class Cv2rsAmbulancePresuny {
+export class XsuchyAmbulancePresuny {
   @State() text: string = 'Povodny text...';
 
   changeText() {
