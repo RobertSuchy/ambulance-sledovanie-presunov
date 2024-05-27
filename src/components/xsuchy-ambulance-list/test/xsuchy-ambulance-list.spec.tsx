@@ -9,7 +9,20 @@ describe('xsuchy-ambulance-list', () => {
       html: `<xsuchy-ambulance-list department-id="dept1" api-base="http://localhost"></xsuchy-ambulance-list>`,
     });
 
-    // Simulate the data fetching
+    // Simulovať získanie dát
+    page.rootInstance.transports = [
+      {
+        id: '1',
+        patientId: '123',
+        patientName: 'John Doe',
+        fromDepartmentId: 'dept1',
+        toDepartmentId: 'dept2',
+        scheduledDateTime: new Date().toISOString(),
+        estimatedDurationMinutes: 30,
+        mobilityStatus: { code: "WALK", value: "Walking", description: "" }
+      }
+    ];
+
     await page.waitForChanges();
 
     const listElement = page.root.shadowRoot.querySelector('md-list');
@@ -22,7 +35,7 @@ describe('xsuchy-ambulance-list', () => {
       html: `<xsuchy-ambulance-list department-id="dept1" api-base="http://localhost"></xsuchy-ambulance-list>`,
     });
 
-    // Simulate API error
+    // Simulovať chybu API
     page.rootInstance.errorMessage = 'Cannot retrieve list of transports: API error';
     await page.waitForChanges();
 

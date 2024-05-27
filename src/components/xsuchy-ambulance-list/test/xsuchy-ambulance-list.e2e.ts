@@ -13,7 +13,22 @@ describe('xsuchy-ambulance-list', () => {
     const page = await newE2EPage();
     await page.setContent('<xsuchy-ambulance-list department-id="dept1" api-base="http://localhost"></xsuchy-ambulance-list>');
 
-    // Simulate the data fetching
+    // Simulovať získanie dát
+    await page.$eval('xsuchy-ambulance-list', (element: any) => {
+      element.transports = [
+        {
+          id: '1',
+          patientId: '123',
+          patientName: 'John Doe',
+          fromDepartmentId: 'dept1',
+          toDepartmentId: 'dept2',
+          scheduledDateTime: new Date().toISOString(),
+          estimatedDurationMinutes: 30,
+          mobilityStatus: { code: "WALK", value: "Walking", description: "" }
+        }
+      ];
+    });
+
     await page.waitForChanges();
 
     const listElement = await page.find('xsuchy-ambulance-list >>> md-list');
@@ -24,7 +39,7 @@ describe('xsuchy-ambulance-list', () => {
     const page = await newE2EPage();
     await page.setContent('<xsuchy-ambulance-list department-id="dept1" api-base="http://localhost"></xsuchy-ambulance-list>');
 
-    // Simulate API error
+    // Simulovať chybu API
     await page.$eval('xsuchy-ambulance-list', (element: any) => {
       element.errorMessage = 'Cannot retrieve list of transports: API error';
     });
