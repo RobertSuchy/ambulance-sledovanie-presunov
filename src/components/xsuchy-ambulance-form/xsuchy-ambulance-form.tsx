@@ -44,7 +44,7 @@ export class XsuchyAmbulanceForm {
     try {
        const response
            = await DepartmentTransportsListApiFactory(undefined, this.apiBase)
-             .getTransport(this.departmentId, this.transportId)
+             .getTransport(this.transportId)
 
        if (response.status < 299) {
           this.transport = response.data;
@@ -260,8 +260,8 @@ export class XsuchyAmbulanceForm {
         const api = DepartmentTransportsListApiFactory(undefined, this.apiBase);
         const response
           = this.transportId === "@new"
-          ? await api.createTransport(this.departmentId, this.transport)
-          : await api.updateTransport(this.departmentId, this.transportId, this.transport);
+          ? await api.createTransport(this.transport)
+          : await api.updateTransport(this.transportId, this.transport);
         if (response.status < 299) {
           this.formClosed.emit("store")
         } else {
@@ -275,7 +275,7 @@ export class XsuchyAmbulanceForm {
   private async deleteTransport() {
     try {
        const response = await DepartmentTransportsListApiFactory(undefined, this.apiBase)
-          .deleteTransport(this.departmentId, this.transportId)
+          .deleteTransport(this.transportId)
        if (response.status < 299) {
        this.formClosed.emit("delete")
        } else {

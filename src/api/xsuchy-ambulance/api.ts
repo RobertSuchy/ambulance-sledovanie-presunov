@@ -417,18 +417,14 @@ export const DepartmentTransportsListApiAxiosParamCreator = function (configurat
         /**
          * Use this method to store new transport into the list.
          * @summary Saves new transport into the list
-         * @param {string} departmentId Pass the ID of the particular department
          * @param {Transport} transport Transport to store
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        createTransport: async (departmentId: string, transport: Transport, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
-            // verify required parameter 'departmentId' is not null or undefined
-            assertParamExists('createTransport', 'departmentId', departmentId)
+        createTransport: async (transport: Transport, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'transport' is not null or undefined
             assertParamExists('createTransport', 'transport', transport)
-            const localVarPath = `/transports/{departmentId}`
-                .replace(`{${"departmentId"}}`, encodeURIComponent(String(departmentId)));
+            const localVarPath = `/transports`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -457,18 +453,14 @@ export const DepartmentTransportsListApiAxiosParamCreator = function (configurat
         /**
          * Use this method to delete the specific transport from the list.
          * @summary Deletes specific transport
-         * @param {string} departmentId Pass the ID of the particular department
          * @param {string} transportId Pass the ID of the particular transport
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        deleteTransport: async (departmentId: string, transportId: string, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
-            // verify required parameter 'departmentId' is not null or undefined
-            assertParamExists('deleteTransport', 'departmentId', departmentId)
+        deleteTransport: async (transportId: string, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'transportId' is not null or undefined
             assertParamExists('deleteTransport', 'transportId', transportId)
-            const localVarPath = `/transports/{departmentId}/{transportId}`
-                .replace(`{${"departmentId"}}`, encodeURIComponent(String(departmentId)))
+            const localVarPath = `/transports/{transportId}`
                 .replace(`{${"transportId"}}`, encodeURIComponent(String(transportId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -493,20 +485,16 @@ export const DepartmentTransportsListApiAxiosParamCreator = function (configurat
             };
         },
         /**
-         * By using departmentId and transportId you can get details of a particular transport. 
+         * By using transportId you can get details of a particular transport. 
          * @summary Provides details about a specific transport
-         * @param {string} departmentId Pass the ID of the particular department
          * @param {string} transportId Pass the ID of the particular transport
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getTransport: async (departmentId: string, transportId: string, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
-            // verify required parameter 'departmentId' is not null or undefined
-            assertParamExists('getTransport', 'departmentId', departmentId)
+        getTransport: async (transportId: string, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'transportId' is not null or undefined
             assertParamExists('getTransport', 'transportId', transportId)
-            const localVarPath = `/transports/{departmentId}/{transportId}`
-                .replace(`{${"departmentId"}}`, encodeURIComponent(String(departmentId)))
+            const localVarPath = `/transports/{transportId}`
                 .replace(`{${"transportId"}}`, encodeURIComponent(String(transportId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -540,7 +528,7 @@ export const DepartmentTransportsListApiAxiosParamCreator = function (configurat
         getTransportsList: async (departmentId: string, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'departmentId' is not null or undefined
             assertParamExists('getTransportsList', 'departmentId', departmentId)
-            const localVarPath = `/transports/{departmentId}`
+            const localVarPath = `/departments/{departmentId}/transports`
                 .replace(`{${"departmentId"}}`, encodeURIComponent(String(departmentId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -567,21 +555,17 @@ export const DepartmentTransportsListApiAxiosParamCreator = function (configurat
         /**
          * Use this method to update the content of the transport.
          * @summary Updates specific transport
-         * @param {string} departmentId Pass the ID of the particular department
          * @param {string} transportId Pass the ID of the particular transport
          * @param {Transport} transport Transport to update
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        updateTransport: async (departmentId: string, transportId: string, transport: Transport, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
-            // verify required parameter 'departmentId' is not null or undefined
-            assertParamExists('updateTransport', 'departmentId', departmentId)
+        updateTransport: async (transportId: string, transport: Transport, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'transportId' is not null or undefined
             assertParamExists('updateTransport', 'transportId', transportId)
             // verify required parameter 'transport' is not null or undefined
             assertParamExists('updateTransport', 'transport', transport)
-            const localVarPath = `/transports/{departmentId}/{transportId}`
-                .replace(`{${"departmentId"}}`, encodeURIComponent(String(departmentId)))
+            const localVarPath = `/transports/{transportId}`
                 .replace(`{${"transportId"}}`, encodeURIComponent(String(transportId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -621,37 +605,34 @@ export const DepartmentTransportsListApiFp = function(configuration?: Configurat
         /**
          * Use this method to store new transport into the list.
          * @summary Saves new transport into the list
-         * @param {string} departmentId Pass the ID of the particular department
          * @param {Transport} transport Transport to store
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async createTransport(departmentId: string, transport: Transport, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Transport>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.createTransport(departmentId, transport, options);
+        async createTransport(transport: Transport, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Transport>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.createTransport(transport, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
          * Use this method to delete the specific transport from the list.
          * @summary Deletes specific transport
-         * @param {string} departmentId Pass the ID of the particular department
          * @param {string} transportId Pass the ID of the particular transport
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async deleteTransport(departmentId: string, transportId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.deleteTransport(departmentId, transportId, options);
+        async deleteTransport(transportId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.deleteTransport(transportId, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
-         * By using departmentId and transportId you can get details of a particular transport. 
+         * By using transportId you can get details of a particular transport. 
          * @summary Provides details about a specific transport
-         * @param {string} departmentId Pass the ID of the particular department
          * @param {string} transportId Pass the ID of the particular transport
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getTransport(departmentId: string, transportId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Transport>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getTransport(departmentId, transportId, options);
+        async getTransport(transportId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Transport>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getTransport(transportId, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
@@ -668,14 +649,13 @@ export const DepartmentTransportsListApiFp = function(configuration?: Configurat
         /**
          * Use this method to update the content of the transport.
          * @summary Updates specific transport
-         * @param {string} departmentId Pass the ID of the particular department
          * @param {string} transportId Pass the ID of the particular transport
          * @param {Transport} transport Transport to update
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async updateTransport(departmentId: string, transportId: string, transport: Transport, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Transport>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.updateTransport(departmentId, transportId, transport, options);
+        async updateTransport(transportId: string, transport: Transport, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Transport>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.updateTransport(transportId, transport, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
     }
@@ -691,35 +671,32 @@ export const DepartmentTransportsListApiFactory = function (configuration?: Conf
         /**
          * Use this method to store new transport into the list.
          * @summary Saves new transport into the list
-         * @param {string} departmentId Pass the ID of the particular department
          * @param {Transport} transport Transport to store
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        createTransport(departmentId: string, transport: Transport, options?: any): AxiosPromise<Transport> {
-            return localVarFp.createTransport(departmentId, transport, options).then((request) => request(axios, basePath));
+        createTransport(transport: Transport, options?: any): AxiosPromise<Transport> {
+            return localVarFp.createTransport(transport, options).then((request) => request(axios, basePath));
         },
         /**
          * Use this method to delete the specific transport from the list.
          * @summary Deletes specific transport
-         * @param {string} departmentId Pass the ID of the particular department
          * @param {string} transportId Pass the ID of the particular transport
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        deleteTransport(departmentId: string, transportId: string, options?: any): AxiosPromise<void> {
-            return localVarFp.deleteTransport(departmentId, transportId, options).then((request) => request(axios, basePath));
+        deleteTransport(transportId: string, options?: any): AxiosPromise<void> {
+            return localVarFp.deleteTransport(transportId, options).then((request) => request(axios, basePath));
         },
         /**
-         * By using departmentId and transportId you can get details of a particular transport. 
+         * By using transportId you can get details of a particular transport. 
          * @summary Provides details about a specific transport
-         * @param {string} departmentId Pass the ID of the particular department
          * @param {string} transportId Pass the ID of the particular transport
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getTransport(departmentId: string, transportId: string, options?: any): AxiosPromise<Transport> {
-            return localVarFp.getTransport(departmentId, transportId, options).then((request) => request(axios, basePath));
+        getTransport(transportId: string, options?: any): AxiosPromise<Transport> {
+            return localVarFp.getTransport(transportId, options).then((request) => request(axios, basePath));
         },
         /**
          * By using departmentId you get list of transports for chosen hospital department
@@ -734,14 +711,13 @@ export const DepartmentTransportsListApiFactory = function (configuration?: Conf
         /**
          * Use this method to update the content of the transport.
          * @summary Updates specific transport
-         * @param {string} departmentId Pass the ID of the particular department
          * @param {string} transportId Pass the ID of the particular transport
          * @param {Transport} transport Transport to update
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        updateTransport(departmentId: string, transportId: string, transport: Transport, options?: any): AxiosPromise<Transport> {
-            return localVarFp.updateTransport(departmentId, transportId, transport, options).then((request) => request(axios, basePath));
+        updateTransport(transportId: string, transport: Transport, options?: any): AxiosPromise<Transport> {
+            return localVarFp.updateTransport(transportId, transport, options).then((request) => request(axios, basePath));
         },
     };
 };
@@ -755,35 +731,32 @@ export interface DepartmentTransportsListApiInterface {
     /**
      * Use this method to store new transport into the list.
      * @summary Saves new transport into the list
-     * @param {string} departmentId Pass the ID of the particular department
      * @param {Transport} transport Transport to store
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof DepartmentTransportsListApiInterface
      */
-    createTransport(departmentId: string, transport: Transport, options?: AxiosRequestConfig): AxiosPromise<Transport>;
+    createTransport(transport: Transport, options?: AxiosRequestConfig): AxiosPromise<Transport>;
 
     /**
      * Use this method to delete the specific transport from the list.
      * @summary Deletes specific transport
-     * @param {string} departmentId Pass the ID of the particular department
      * @param {string} transportId Pass the ID of the particular transport
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof DepartmentTransportsListApiInterface
      */
-    deleteTransport(departmentId: string, transportId: string, options?: AxiosRequestConfig): AxiosPromise<void>;
+    deleteTransport(transportId: string, options?: AxiosRequestConfig): AxiosPromise<void>;
 
     /**
-     * By using departmentId and transportId you can get details of a particular transport. 
+     * By using transportId you can get details of a particular transport. 
      * @summary Provides details about a specific transport
-     * @param {string} departmentId Pass the ID of the particular department
      * @param {string} transportId Pass the ID of the particular transport
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof DepartmentTransportsListApiInterface
      */
-    getTransport(departmentId: string, transportId: string, options?: AxiosRequestConfig): AxiosPromise<Transport>;
+    getTransport(transportId: string, options?: AxiosRequestConfig): AxiosPromise<Transport>;
 
     /**
      * By using departmentId you get list of transports for chosen hospital department
@@ -798,14 +771,13 @@ export interface DepartmentTransportsListApiInterface {
     /**
      * Use this method to update the content of the transport.
      * @summary Updates specific transport
-     * @param {string} departmentId Pass the ID of the particular department
      * @param {string} transportId Pass the ID of the particular transport
      * @param {Transport} transport Transport to update
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof DepartmentTransportsListApiInterface
      */
-    updateTransport(departmentId: string, transportId: string, transport: Transport, options?: AxiosRequestConfig): AxiosPromise<Transport>;
+    updateTransport(transportId: string, transport: Transport, options?: AxiosRequestConfig): AxiosPromise<Transport>;
 
 }
 
@@ -819,40 +791,37 @@ export class DepartmentTransportsListApi extends BaseAPI implements DepartmentTr
     /**
      * Use this method to store new transport into the list.
      * @summary Saves new transport into the list
-     * @param {string} departmentId Pass the ID of the particular department
      * @param {Transport} transport Transport to store
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof DepartmentTransportsListApi
      */
-    public createTransport(departmentId: string, transport: Transport, options?: AxiosRequestConfig) {
-        return DepartmentTransportsListApiFp(this.configuration).createTransport(departmentId, transport, options).then((request) => request(this.axios, this.basePath));
+    public createTransport(transport: Transport, options?: AxiosRequestConfig) {
+        return DepartmentTransportsListApiFp(this.configuration).createTransport(transport, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * Use this method to delete the specific transport from the list.
      * @summary Deletes specific transport
-     * @param {string} departmentId Pass the ID of the particular department
      * @param {string} transportId Pass the ID of the particular transport
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof DepartmentTransportsListApi
      */
-    public deleteTransport(departmentId: string, transportId: string, options?: AxiosRequestConfig) {
-        return DepartmentTransportsListApiFp(this.configuration).deleteTransport(departmentId, transportId, options).then((request) => request(this.axios, this.basePath));
+    public deleteTransport(transportId: string, options?: AxiosRequestConfig) {
+        return DepartmentTransportsListApiFp(this.configuration).deleteTransport(transportId, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
-     * By using departmentId and transportId you can get details of a particular transport. 
+     * By using transportId you can get details of a particular transport. 
      * @summary Provides details about a specific transport
-     * @param {string} departmentId Pass the ID of the particular department
      * @param {string} transportId Pass the ID of the particular transport
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof DepartmentTransportsListApi
      */
-    public getTransport(departmentId: string, transportId: string, options?: AxiosRequestConfig) {
-        return DepartmentTransportsListApiFp(this.configuration).getTransport(departmentId, transportId, options).then((request) => request(this.axios, this.basePath));
+    public getTransport(transportId: string, options?: AxiosRequestConfig) {
+        return DepartmentTransportsListApiFp(this.configuration).getTransport(transportId, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -870,15 +839,14 @@ export class DepartmentTransportsListApi extends BaseAPI implements DepartmentTr
     /**
      * Use this method to update the content of the transport.
      * @summary Updates specific transport
-     * @param {string} departmentId Pass the ID of the particular department
      * @param {string} transportId Pass the ID of the particular transport
      * @param {Transport} transport Transport to update
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof DepartmentTransportsListApi
      */
-    public updateTransport(departmentId: string, transportId: string, transport: Transport, options?: AxiosRequestConfig) {
-        return DepartmentTransportsListApiFp(this.configuration).updateTransport(departmentId, transportId, transport, options).then((request) => request(this.axios, this.basePath));
+    public updateTransport(transportId: string, transport: Transport, options?: AxiosRequestConfig) {
+        return DepartmentTransportsListApiFp(this.configuration).updateTransport(transportId, transport, options).then((request) => request(this.axios, this.basePath));
     }
 }
 

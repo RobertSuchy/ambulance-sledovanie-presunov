@@ -59,7 +59,7 @@ export class XsuchyAmbulance {
             oneditor-closed={ () => navigate("./list")} >
           </xsuchy-ambulance-form>
           : <xsuchy-ambulance-list  department-id={this.departmentId} api-base={this.apiBase}
-            onentry-clicked={ (ev: CustomEvent<string>)=> navigate("./transport/" + ev.detail) } >
+            ontransport-clicked={ (ev: CustomEvent<string>)=> navigate("./transport/" + ev.detail) } >
           </xsuchy-ambulance-list>
         }
       </Host>
