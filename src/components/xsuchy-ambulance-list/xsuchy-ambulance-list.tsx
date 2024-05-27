@@ -1,5 +1,5 @@
 import { Component, Host, h, Event, EventEmitter, Prop, State } from '@stencil/core';
-import { Transport, MobilityStatus, DepartmentTransportsListApiFactory, DepartmentListApiFactory, MobilityStatusListApiFactory } from '../../api/xsuchy-ambulance';
+import { Transport, DepartmentTransportsListApiFactory } from '../../api/xsuchy-ambulance';
 
 @Component({
   tag: 'xsuchy-ambulance-list',
