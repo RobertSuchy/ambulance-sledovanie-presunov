@@ -1,0 +1,53 @@
+:host {
+  display: block;
+  padding: 20px;
+  background: #f4f4f9;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  font-family: 'Roboto', sans-serif;
+  max-width: 1000px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 50px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+md-filled-text-field,
+md-filled-select {
+  width: 100%;
+}
+
+.actions {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  margin-top: 20px;
+}
+
+.actions md-filled-tonal-button,
+.actions md-outlined-button,
+.actions md-filled-button {
+  margin: 0 8px;
+}
+
+.stretch-fill {
+  flex: 1;
+}
+
+.error {
+  color: #ff4d4d;
+  background: #ffe6e6;
+  padding: 12px;
+  border: 1px solid #ffcccc;
+  border-radius: 4px;
+  margin-bottom: 20px;
+}
+
+md-divider {
+  margin: 20px 0;
+}

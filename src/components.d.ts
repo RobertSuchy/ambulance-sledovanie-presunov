@@ -7,9 +7,27 @@
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 export namespace Components {
     interface XsuchyAmbulance {
+        "apiBase": string;
+        "basePath": string;
+        "departmentId": string;
     }
-    interface XsuchyAmbulanceEditor {
+    interface XsuchyAmbulanceForm {
+        "apiBase": string;
+        "departmentId": string;
+        "transportId": string;
     }
+    interface XsuchyAmbulanceList {
+        "apiBase": string;
+        "departmentId": string;
+    }
+}
+export interface XsuchyAmbulanceFormCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLXsuchyAmbulanceFormElement;
+}
+export interface XsuchyAmbulanceListCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLXsuchyAmbulanceListElement;
 }
 declare global {
     interface HTMLXsuchyAmbulanceElement extends Components.XsuchyAmbulance, HTMLStencilElement {
@@ -18,25 +36,67 @@ declare global {
         prototype: HTMLXsuchyAmbulanceElement;
         new (): HTMLXsuchyAmbulanceElement;
     };
-    interface HTMLXsuchyAmbulanceEditorElement extends Components.XsuchyAmbulanceEditor, HTMLStencilElement {
+    interface HTMLXsuchyAmbulanceFormElementEventMap {
+        "form-closed": string;
     }
-    var HTMLXsuchyAmbulanceEditorElement: {
-        prototype: HTMLXsuchyAmbulanceEditorElement;
-        new (): HTMLXsuchyAmbulanceEditorElement;
+    interface HTMLXsuchyAmbulanceFormElement extends Components.XsuchyAmbulanceForm, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLXsuchyAmbulanceFormElementEventMap>(type: K, listener: (this: HTMLXsuchyAmbulanceFormElement, ev: XsuchyAmbulanceFormCustomEvent<HTMLXsuchyAmbulanceFormElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLXsuchyAmbulanceFormElementEventMap>(type: K, listener: (this: HTMLXsuchyAmbulanceFormElement, ev: XsuchyAmbulanceFormCustomEvent<HTMLXsuchyAmbulanceFormElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
+    }
+    var HTMLXsuchyAmbulanceFormElement: {
+        prototype: HTMLXsuchyAmbulanceFormElement;
+        new (): HTMLXsuchyAmbulanceFormElement;
+    };
+    interface HTMLXsuchyAmbulanceListElementEventMap {
+        "transport-clicked": string;
+    }
+    interface HTMLXsuchyAmbulanceListElement extends Components.XsuchyAmbulanceList, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLXsuchyAmbulanceListElementEventMap>(type: K, listener: (this: HTMLXsuchyAmbulanceListElement, ev: XsuchyAmbulanceListCustomEvent<HTMLXsuchyAmbulanceListElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLXsuchyAmbulanceListElementEventMap>(type: K, listener: (this: HTMLXsuchyAmbulanceListElement, ev: XsuchyAmbulanceListCustomEvent<HTMLXsuchyAmbulanceListElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
+    }
+    var HTMLXsuchyAmbulanceListElement: {
+        prototype: HTMLXsuchyAmbulanceListElement;
+        new (): HTMLXsuchyAmbulanceListElement;
     };
     interface HTMLElementTagNameMap {
         "xsuchy-ambulance": HTMLXsuchyAmbulanceElement;
-        "xsuchy-ambulance-editor": HTMLXsuchyAmbulanceEditorElement;
+        "xsuchy-ambulance-form": HTMLXsuchyAmbulanceFormElement;
+        "xsuchy-ambulance-list": HTMLXsuchyAmbulanceListElement;
     }
 }
 declare namespace LocalJSX {
     interface XsuchyAmbulance {
+        "apiBase"?: string;
+        "basePath"?: string;
+        "departmentId"?: string;
     }
-    interface XsuchyAmbulanceEditor {
+    interface XsuchyAmbulanceForm {
+        "apiBase"?: string;
+        "departmentId"?: string;
+        "onForm-closed"?: (event: XsuchyAmbulanceFormCustomEvent<string>) => void;
+        "transportId"?: string;
+    }
+    interface XsuchyAmbulanceList {
+        "apiBase"?: string;
+        "departmentId"?: string;
+        "onTransport-clicked"?: (event: XsuchyAmbulanceListCustomEvent<string>) => void;
     }
     interface IntrinsicElements {
         "xsuchy-ambulance": XsuchyAmbulance;
-        "xsuchy-ambulance-editor": XsuchyAmbulanceEditor;
+        "xsuchy-ambulance-form": XsuchyAmbulanceForm;
+        "xsuchy-ambulance-list": XsuchyAmbulanceList;
     }
 }
 export { LocalJSX as JSX };
@@ -44,7 +104,8 @@ declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
             "xsuchy-ambulance": LocalJSX.XsuchyAmbulance & JSXBase.HTMLAttributes<HTMLXsuchyAmbulanceElement>;
-            "xsuchy-ambulance-editor": LocalJSX.XsuchyAmbulanceEditor & JSXBase.HTMLAttributes<HTMLXsuchyAmbulanceEditorElement>;
+            "xsuchy-ambulance-form": LocalJSX.XsuchyAmbulanceForm & JSXBase.HTMLAttributes<HTMLXsuchyAmbulanceFormElement>;
+            "xsuchy-ambulance-list": LocalJSX.XsuchyAmbulanceList & JSXBase.HTMLAttributes<HTMLXsuchyAmbulanceListElement>;
         }
     }
 }
