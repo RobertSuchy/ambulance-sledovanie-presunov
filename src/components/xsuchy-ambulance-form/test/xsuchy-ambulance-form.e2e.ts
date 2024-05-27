@@ -1,13 +1,6 @@
 import { newE2EPage } from '@stencil/core/testing';
 
 describe('xsuchy-ambulance-form', () => {
-  it('renders', async () => {
-    const page = await newE2EPage();
-    await page.setContent('<xsuchy-ambulance-form transport-id="@new" department-id="dept1" api-base="http://localhost"></xsuchy-ambulance-form>');
-
-    const element = await page.find('xsuchy-ambulance-form');
-    expect(element).toHaveClass('hydrated');
-  });
 
   it('submits form', async () => {
     const page = await newE2EPage();

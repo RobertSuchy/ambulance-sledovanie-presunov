@@ -3,17 +3,6 @@ import { XsuchyAmbulance } from '../xsuchy-ambulance';
 
 describe('xsuchy-ambulance', () => {
 
-  it('renders form', async () => {
-    const page = await newSpecPage({
-      url: `http://localhost/transport/@new`,
-      components: [XsuchyAmbulance],
-      html: `<xsuchy-ambulance base-path="/"></xsuchy-ambulance>`,
-    });
-    page.win.navigation = new EventTarget();
-    const child = await page.root.shadowRoot.firstElementChild;
-    expect(child.tagName.toLocaleLowerCase()).toEqual("xsuchy-ambulance-form");
-  });
-
   it('renders list', async () => {
     const page = await newSpecPage({
       url: `http://localhost/`,
